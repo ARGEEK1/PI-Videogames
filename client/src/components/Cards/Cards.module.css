@@ -1,0 +1,9 @@
+.cards {
+  margin: 70px 30px 50px;
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fit, 252px);
+  grid-template-rows: 1fr;
+  grid-gap: 1.5em;
+  justify-items: center;
+}
