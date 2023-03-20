@@ -5,10 +5,10 @@ module.exports = (sequelize) => {
     "platform",
     {
       id: {
-				type: DataTypes.INTEGER,
-				autoIncrement: true,
-				primaryKey: true,
-			},
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
       name: {
         type: DataTypes.STRING,
       },

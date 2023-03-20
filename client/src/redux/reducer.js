@@ -8,6 +8,8 @@ import {
   ORDER_RATING,
   FILTER_GENRE,
   FILTER_CREATED,
+  ADD_GAME,
+  CREATE_VIDEOGAME,
 } from "./actions";
 
 const initialState = {
@@ -135,6 +137,20 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         videosgamesFiltering: filterCreated,
+      };
+
+    // case ADD_GAME:
+    //   state.videogames.unshift(payload);
+    //   return {
+    //     ...state,
+    //     videosgamesFiltering: [...state.videogames],
+    //   };
+
+    case CREATE_VIDEOGAME:
+      state.videogames.unshift(payload);
+      return {
+        ...state,
+        videosgamesFiltering: [...state.videogames],
       };
 
     default:

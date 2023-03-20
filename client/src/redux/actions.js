@@ -9,6 +9,8 @@ export const ORDER_NAME = "ORDER_NAME";
 export const ORDER_RATING = "ORDER_RATING";
 export const FILTER_GENRE = "FILTER_GENRE";
 export const FILTER_CREATED = "FILTER_CREATED";
+export const ADD_GAME = "ADD_GAME";
+export const CREATE_VIDEOGAME = "CREATE_VIDEOGAME";
 
 export const getVideogames = () => {
   return async (dispatch) => {
@@ -62,6 +64,27 @@ export const getVideogamesByName = (name) => {
   };
 };
 
+export const createVideoGame = (newGame) => {
+  return async (dispatch) => {
+    try {
+      const newVideoGame = await axios.post(
+        "http://localhost:3001/videogames",
+        newGame
+      );
+      if (newVideoGame.data) {
+        console.log(newVideoGame.data);
+        alert("video game created successfully");
+      }
+      return dispatch({
+        type: CREATE_VIDEOGAME,
+        payload: newVideoGame.data,
+      });
+    } catch (error) {
+      alert(error.response.data.error);
+    }
+  };
+};
+
 export const orderByName = (value) => {
   return (dispatch) => {
     dispatch({ type: ORDER_NAME, payload: value });
@@ -83,5 +106,11 @@ export const filterByGenre = (value) => {
 export const filterByCreated = (value) => {
   return (dispatch) => {
     dispatch({ type: FILTER_CREATED, payload: value });
+  };
+};
+
+export const addGame = (game) => {
+  return (dispatch) => {
+    dispatch({ type: ADD_GAME, payload: game });
   };
 };

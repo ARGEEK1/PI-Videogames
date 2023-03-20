@@ -5,16 +5,16 @@ const Card = (props) => {
 
   return (
 
-    <div className={styles.card}>
+    <div className={styles.card} key={props.id}>
       <Link to={`/detail/${props.id}`}>
       <img src={props.image} alt={props.name} />
       <div className={styles.cardInfo}>
         <div className={styles.cardText}>
           <p className={styles.textTitle}>{props.name}</p>
           {
-            props.genres.map((gem) => {
+            props.genres.map((gem,i) => {
               return (
-                <p className={styles.textSubtitle}>{gem.name}</p>
+                <p key={i} className={styles.textSubtitle}>{gem.name}</p>
               )
             })
           }

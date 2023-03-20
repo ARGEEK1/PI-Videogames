@@ -25,7 +25,7 @@ const Detail = () => {
         <h1>NAME: {name}</h1>
       </div>
       <div>
-      <p dangerouslySetInnerHTML={{ __html: description }} />
+        <p dangerouslySetInnerHTML={{ __html: description }} />
       </div>
       <div>
         <h2>RELEASED: {released}</h2>
@@ -36,18 +36,18 @@ const Detail = () => {
       <div>
         <h2>PLATFORMS: </h2>
         {
-          platforms?.map((plat) => {
+          platforms?.map((plat, i) => {
             return (
-              <p>{plat.name}</p>
+              <p key={i}>{plat.name}</p>
             )
           })
         }
       </div>
       <h2>GENRES:</h2>
       {
-        genres?.map((gen) => {
+        genres?.map((gen, i) => {
           return (
-            <p>{gen.name}</p>
+            <p key={i}>{gen.name}</p>
           )
         })
       }

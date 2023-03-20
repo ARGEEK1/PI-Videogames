@@ -2,7 +2,7 @@ const { Router } = require("express");
 const router = Router();
 const { getAllGames } = require("../controllers/getAllGames");
 const { getGameByName } = require("../controllers/getGameByName");
-const { addGame } = require('../controllers/addGame');
+const { addGame } = require("../controllers/addGame");
 
 router.get("/", async (req, res) => {
   const { name } = req.query;
@@ -21,7 +21,8 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { name, image, released, rating, description, platforms, genres } = req.body;
+  const { name, image, released, rating, description, platforms, genres } =
+    req.body;
   try {
     const newGame = await addGame(
       name,
@@ -31,7 +32,7 @@ router.post("/", async (req, res) => {
       description,
       platforms,
       genres
-    )
+    );
     res.status(201).send(newGame);
   } catch (error) {
     res.status(404).json({ error: error.message });

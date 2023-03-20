@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
-const { getGameById } = require('../controllers/getGameById');
-const { deleteGame } = require('../controllers/deleteGame');
+const { getGameById } = require("../controllers/getGameById");
+const { deleteGame } = require("../controllers/deleteGame");
 
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
@@ -17,9 +17,9 @@ router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     await deleteGame(id);
-    res.status(200).send('Game deleted');
+    res.status(200).send("Game deleted");
   } catch (error) {
-    res.status(404).json({error: error.message});
+    res.status(404).json({ error: error.message });
   }
 });
 

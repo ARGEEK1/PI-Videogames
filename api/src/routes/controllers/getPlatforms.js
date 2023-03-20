@@ -6,7 +6,6 @@ const { Platform } = require("../../db");
 const getPlatforms = async () => {
   let platformsApi = await axios.get(`${URL}platforms?key=${API_KEY}`);
   platformsApi = platformsApi.data.results;
-  console.log(platformsApi)
 
   if (platformsApi) {
     platformsApi = platformsApi.map((plat) => {

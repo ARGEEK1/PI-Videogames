@@ -30,29 +30,23 @@ const Filters = () => {
   return (
     <div className={styles.selectors}>
       <div>
-        <label className={styles.label} htmlFor="orderAlphabetic">
-          Order Alphabetic
-        </label>
+        <label className={styles.label} htmlFor="orderAlphabetic">Order Alphabetic: </label>
         <select name='orderAlphabetic' onChange={handleAlphabetic} className={styles.select}>
-          <option value='All'>none</option>
+          <option value='All'>None</option>
           <option value='a-z'>A-Z</option>
           <option value='z-a'>Z-A</option>
         </select>
       </div>
       <div>
-        <label className={styles.label} htmlFor="orderRating">
-          Order Rating
-        </label>
+        <label className={styles.label} htmlFor="orderRating">Order Rating: </label>
         <select name='orderRating' onChange={handleRating} className={styles.select}>
-          <option value='All'>none</option>
+          <option value='All'>None</option>
           <option value='5-0'>5-0</option>
           <option value='0-5'>0-5</option>
         </select>
       </div>
       <div>
-        <label className={styles.label} htmlFor="filterGenres">
-          Filter by Genres
-        </label>
+        <label className={styles.label} htmlFor="filterGenres">Filter by Genres: </label>
         <select name='filterGenres' onChange={handleGenres} className={styles.select}>
           <option value='All'>All</option>
           {genres.map((gen) => (
@@ -63,9 +57,7 @@ const Filters = () => {
         </select>
       </div>
       <div>
-        <label className={styles.label} htmlFor="filterCreated">
-          Filter by Created
-        </label>
+        <label className={styles.label} htmlFor="filterCreated">Filter by Created: </label>
         <select name='filterCreated' onChange={handleCreated} className={styles.select}>
           <option value='All'>All</option>
           <option value='created'>Created</option>
