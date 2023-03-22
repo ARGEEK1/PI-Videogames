@@ -10,6 +10,7 @@ import {
   FILTER_CREATED,
   ADD_GAME,
   CREATE_VIDEOGAME,
+  DELETE_GAME,
 } from "./actions";
 
 const initialState = {
@@ -19,7 +20,6 @@ const initialState = {
   videogameDetail: [],
   genres: [],
   platforms: [],
-  videogamesByName: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -55,7 +55,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_GAMES_BY_NAME:
       return {
         ...state,
-        videogamesByName: payload,
+        videosgamesFiltering: payload,
       };
 
     case ORDER_NAME:
@@ -151,6 +151,14 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         videosgamesFiltering: [...state.videogames],
+      };
+
+    case DELETE_GAME:
+      return {
+        ...state,
+        videosgamesFiltering: [...state.videogames].filter(
+          (game) => game.id !== payload
+        ),
       };
 
     default:

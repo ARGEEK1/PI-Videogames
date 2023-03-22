@@ -45,7 +45,6 @@ const FormCreate = () => {
       ...newGame,
       [e.target.name]: e.target.value
     });
-
   };
 
   const handleGenres = (e) => {
@@ -59,7 +58,6 @@ const FormCreate = () => {
       genres: newGame.genres.filter((gen) => gen !== e.target.value),
     });
   };
-
 
   const handlePlatforms = (e) => {
     setErrors(validation({ ...newGame, platforms: [...newGame.platforms, e.target.value] }));
@@ -182,7 +180,7 @@ const FormCreate = () => {
         <div className={style.inputContainer}>
           <label className={style.formLabel} htmlFor='genres'>Genres: </label>
           <select name='genres' onChange={handleGenres} className={style.select}>
-          <option>Select</option>
+            <option>Select</option>
             {genres.map((gen, i) => (
               <option value={gen.name} key={i}>
                 {gen.name}

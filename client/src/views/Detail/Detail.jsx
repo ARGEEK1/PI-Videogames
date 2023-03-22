@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDetailById } from '../../redux/actions';
+import { getDetailById, deleteGame } from '../../redux/actions';
 
 const Detail = () => {
   const { gameID } = useParams();
-
+  const history = useHistory();
 
   const dispatch = useDispatch();
-  const { id, name, description, released, rating, image, platforms, genres } = useSelector(
+  const { id, name, description, released, rating, image, platforms, genres, created } = useSelector(
     (state) => state?.videogameDetail
   );
 
@@ -16,6 +16,10 @@ const Detail = () => {
     dispatch(getDetailById(gameID));
   }, [dispatch]);
 
+  const deleteById = (id) => {
+    dispatch(deleteGame(id));
+    history.push("/home");
+  };
   return (
     <div>
       <div>
@@ -54,8 +58,13 @@ const Detail = () => {
       <div>
         <img src={image} alt={name} />
       </div>
-
-      <Link to='/home' ><button>Back</button></Link>
+      <div>
+        {created ? <button onClick={() => deleteById(id)}>Delete</button> : null}
+      </div>
+      <br />
+      <div>
+        <Link to='/home' ><button>Back</button></Link>
+      </div>
     </div>
   )
 };

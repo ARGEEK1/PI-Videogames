@@ -1,37 +1,106 @@
-.search {
-  display: flex;
-  align-items: center;
-}
-
-.inpSearch {
-  min-height: 50px;
-  max-width: 150px;
-  padding: 0 1rem;
-  color: #ffffff;
-  font-size: 15px;
-  border: 3px solid #000000ee;
-  box-shadow: 0.1em 0.1em wheat;
-  border-radius: 6px 0 0 6px;
-  background-color: #dff2516a;
-}
-
-.btnSearch {
-  min-height: 50px;
-  padding: .5em 1em;
+.search input[type=text] {
+  background-color: rgba(255, 255, 255, 0.731);
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  width: 300px;
+  height: 35px;
+  border-radius: 8px 0px 0px 8px;
   border: none;
-  border-radius: 0 6px 6px 0;
-  border: 3px solid #000000ee;
-  background-color: #dff251ee;
-  box-shadow: 0.1em 0.1em wheat;
-  font-family: 'Share Tech Mono', monospace;
-  font-weight: 900;
-  font-size: 19px;
-  color: #000000;
-  cursor: pointer;
-  transition: background-color .3s ease-in-out;
+  line-height: 80px;
 }
 
-.btnSearch:hover {
-  background-color: #26ff00;
-  box-shadow: 0.15em 0.15em wheat;
+.search {
+  padding: 22px;
+}
+
+::placeholder {
+  text-align: center;
+  font-size: 16px;
+}
+
+.search input[type=text]:hover {
+  border:solid #520044;
+}
+
+.search button {
+  background-color: rgba(255, 255, 255, 0.731);
+  color: rgb(228, 228, 228);
+  float: right;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 0px 8px 8px 0px;
+  height: 35px;
+}
+
+.search button:hover {
+  border:solid #520044;
+}
+
+@media (max-width: 998px) {
+
+  .search input[type=text] {
+    font-size: 16px;
+    width: 250px;
+    height: 35px;
+    border-radius: 8px 0px 0px 8px;
+    border: none;
+    line-height: 80px;
+  }
+
+  .search {
+    padding: 12.5px;
+  }
+}
+
+@media (max-width: 573px) {
+
+  .search input[type=text] {
+    font-size: 16px;
+    width: 175px;
+    height: 25px;
+    border-radius: 8px 0px 0px 8px;
+    border: none;
+    line-height: 80px;
+  }
+
+  .search {
+    padding: 17px;
+  }
+
+  .search button {
+    float: right;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 0px 8px 8px 0px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 435px) {
+
+  .search input[type=text] {
+    font-size: 16px;
+    width: 175px;
+    height: 25px;
+    border-radius: 8px 0px 0px 8px;
+    border: none;
+    line-height: 80px;
+  }
+
+  .search {
+    padding: 5px;
+    order: 1;
+    margin-top: -25px;
+  }
+
+  .search button {
+    float: right;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 0px 8px 8px 0px;
+    height: 25px;
+  }
 }

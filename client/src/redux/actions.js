@@ -11,6 +11,7 @@ export const FILTER_GENRE = "FILTER_GENRE";
 export const FILTER_CREATED = "FILTER_CREATED";
 export const ADD_GAME = "ADD_GAME";
 export const CREATE_VIDEOGAME = "CREATE_VIDEOGAME";
+export const DELETE_GAME = "DELETE_GAME";
 
 export const getVideogames = () => {
   return async (dispatch) => {
@@ -52,7 +53,7 @@ export const getVideogamesByName = (name) => {
   return async (dispatch) => {
     try {
       const videogamesByName = await axios.get(
-        `http://localhost:3001//videogames?name=${name}`
+        `http://localhost:3001/videogames?name=${name}`
       );
       return dispatch({
         type: GET_GAMES_BY_NAME,
@@ -78,6 +79,23 @@ export const createVideoGame = (newGame) => {
       return dispatch({
         type: CREATE_VIDEOGAME,
         payload: newVideoGame.data,
+      });
+    } catch (error) {
+      alert(error.response.data.error);
+    }
+  };
+};
+
+export const deleteGame = (id) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:3001/videogames/${id}`
+      );
+      alert(response.data);
+      return dispatch({
+        type: DELETE_GAME,
+        payload: id
       });
     } catch (error) {
       alert(error.response.data.error);

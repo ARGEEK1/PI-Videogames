@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./Filters.module.css";
 import { orderByName, orderByRating, filterByGenre, filterByCreated } from "../../redux/actions"
 
-const Filters = () => {
+const Filters = ({ visibleForm }) => {
   const dispatch = useDispatch();
 
   const genres = useSelector((state) => state.genres);
@@ -63,6 +63,14 @@ const Filters = () => {
           <option value='created'>Created</option>
           <option value='notCreated'>Not Created</option>
         </select>
+      </div>
+      <br />
+      <div>
+        <button>All Games</button>
+      </div>
+      <br />
+      <div>
+        <button onClick={() => visibleForm()}>Create</button>
       </div>
     </div>
   );

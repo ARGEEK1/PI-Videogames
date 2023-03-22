@@ -1,17 +1,24 @@
 const axios = require("axios");
 require("dotenv").config();
 const { URL, API_KEY } = process.env;
-const { Videogame } = require("../../db");
+const { Videogame, Genre } = require("../../db");
 const { Op } = require("sequelize");
 
 const getGameByName = async (name) => {
   const gameDb = await Videogame.findAll({
     where: { name: { [Op.iLike]: `%${name}%` } },
+    include: [
+      {
+        model: Genre,
+        attributes: ["id", "name"],
+        through: {
+          attributes: [],
+        },
+      },
+    ],
   });
 
-  const gameApi = await axios.get(
-    `${URL}games?key=${API_KEY}&search=${name}`
-  );
+  const gameApi = await axios.get(`${URL}games?key=${API_KEY}&search=${name}`);
 
   const games = gameApi.data.results.map((game) => {
     return {
@@ -27,7 +34,7 @@ const getGameByName = async (name) => {
         };
       }),
     };
-  })
+  });
 
   const allGames = [...gameDb, ...games];
 

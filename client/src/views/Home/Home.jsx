@@ -12,6 +12,8 @@ const Home = () => {
   const games = useSelector((state) => state?.videosgamesFiltering);
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [create, setCreate] = useState(false);
+
   const itemsPerPage = 15;
   const maxPages = Math.ceil(games.length / itemsPerPage);
 
@@ -23,10 +25,14 @@ const Home = () => {
     setCurrentPage(currentPage - 1);
   };
 
+  const visibleForm = () => {
+    setCreate(!create);
+  };
+
   return (
     <div>
-      <Filters />
-      <FormCreate />
+      <Filters visibleForm={visibleForm} />
+      {create ? <FormCreate /> : null}
       <Pagination
         currentPage={currentPage}
         nextPage={nextPage}
