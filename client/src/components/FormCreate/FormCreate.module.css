@@ -2,21 +2,21 @@
   position: absolute;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.259);
+  background-color: rgba(0, 0, 0, 0.361);
   backdrop-filter: blur(15px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
 }
 
 
 .form form {
-  width: 700px;
+  width: 800px;
   height: 700px;
-  background-color: #210537;
+  background-color:  #1a1a1a;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -53,7 +53,7 @@
   font-size: 16px;
   color: #ffffff;
   border: none;
-  background-color: #422f51;
+  background-color: #ffffff42;
   border-radius: 8px;
   outline: 0;
   cursor: pointer;
@@ -66,7 +66,7 @@
   font-size: 16px;
   color: #ffffff;
   border: none;
-  background-color: #422f51;
+  background-color: #ffffff42;
   border-radius: 8px;
   outline: 0;
   cursor: pointer;
@@ -79,7 +79,7 @@
   font-size: 16px;
   color: #ffffff;
   border: none;
-  background-color: #422f51;
+  background-color: #ffffff42;
   border-radius: 8px;
   outline: 0;
   cursor: pointer;
@@ -118,7 +118,7 @@
   margin: 5px;
   border: none;
   border-radius: 3px;
-  background-color: #422f51;
+  background-color: #ffffff;
   color: rgb(255, 52, 52);
   height: 18px;
   width: 24px;
@@ -133,12 +133,12 @@
   width: 200px;
   height: 40px;
   font-size: 1.2rem;
-  color: #e3e3e3;
+  color: #000000;
   outline: 0;
   border: 0;
   border-radius: 8px;
-  background-color: #422f51;
-  border: 3px solid #dadada;
+  background-color: #ffffffd2;
+  border: 2px solid black;
   cursor: pointer;
 }
 

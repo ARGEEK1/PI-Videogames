@@ -3,14 +3,13 @@ import { useEffect } from "react";
 import { useParams, Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetailById, deleteGame } from "../../redux/actions";
+import styles from "./Detail.module.css";
 
-import Loading from "../../components/Loading/Loading";
 
 const Detail = () => {
   const { gameID } = useParams();
   const history = useHistory();
 
-  const loading = useSelector((state) => state.onLoad);
   const dispatch = useDispatch();
   const { id, name, description, released, rating, image, platforms, genres, created } = useSelector(
     (state) => state?.videogameDetail
@@ -26,40 +25,36 @@ const Detail = () => {
   };
 
   return (
-    <div>
-      {loading ?
-        (
-          <>
-            <Loading />
-          </>
-        ) : (
-          <>
-            <div>
-              <h1>ID: {id}</h1>
-            </div>
-            <div>
-              <h1>NAME: {name}</h1>
-            </div>
-            <div>
-              <p dangerouslySetInnerHTML={{ __html: description }} />
-            </div>
-            <div>
-              <h2>RELEASED: {released}</h2>
-            </div>
-            <div>
-              <h2>RATING: {rating}</h2>
-            </div>
-            <div>
-              <h2>PLATFORMS: </h2>
-              {
-                platforms?.map((plat, i) => {
-                  return (
-                    <p key={i}>{plat.name}</p>
-                  )
-                })
-              }
-            </div>
-            <h2>GENRES:</h2>
+    <div className={styles.mainDetail}>
+
+      <div className={styles.containerDetail}>
+        {/* <h1>ID: {id}</h1> */}
+        <div className={styles.title}>
+          <h1>{name}</h1>
+        </div>
+
+        <div className={styles.gameAbout}>
+          <h2>About</h2>
+          <div className={styles.about}>
+            <p dangerouslySetInnerHTML={{ __html: description }} />
+          </div>
+        </div>
+
+        <div className={styles.infoDetail}>
+
+          <div>
+            <h2>Platforms </h2>
+            {
+              platforms?.map((plat, i) => {
+                return (
+                  <p key={i}>{plat.name}</p>
+                )
+              })
+            }
+          </div>
+
+          <div>
+            <h2>Genres </h2>
             {
               genres?.map((gen, i) => {
                 return (
@@ -67,19 +62,32 @@ const Detail = () => {
                 )
               })
             }
-            <div>
-              <img src={image} alt={name} />
-            </div>
-            <div>
-              {created ? <button onClick={() => deleteById(id)}>Delete</button> : null}
-            </div>
-            <br />
-            <div>
-              <Link to="/home" ><button>Back</button></Link>
-            </div>
-          </>
-        )
-      }
+          </div>
+
+          <div>
+            <h2>Released</h2>
+            <p>{released}</p>
+          </div>
+
+          <div>
+            <h2>Rating</h2>
+            <p>{rating}</p>
+          </div>
+
+          {created ? <div className={styles.btnContainer}> <button className={`${styles.btn} ${styles.create}`} onClick={() => deleteById(id)}>Delete</button> </div> : null}
+
+          <br />
+          <div className={styles.btnContainer}>
+            <Link to="/home" ><button className={styles.btn}>Back</button></Link>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div className={styles.imageContainer}>
+        <img className={styles.imgDetail} src={image} alt={name} />
+      </div>
     </div>
   );
 };

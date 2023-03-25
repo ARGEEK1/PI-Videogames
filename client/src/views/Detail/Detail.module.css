@@ -1,0 +1,105 @@
+.mainDetail {
+  width: 100%;
+  height:100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.containerDetail {
+  color: rgb(255, 255, 255);
+  padding-top: 120px;
+  width: 100%;
+  height: 803px;
+  position:fixed;
+  z-index: 1;
+  background: linear-gradient(90deg, #000000, #00000000);
+}
+
+.imgDetail {
+  margin-top: 77px;
+  position: fixed;
+  width: 100%;
+  height:900px;
+  object-fit: cover;
+}
+
+.title {
+  font-size: 30px;
+  line-height: 70px;
+  font-weight: 700;
+  text-shadow: -4px 4px rgb(0, 0, 0);
+  margin-left: 20px;
+}
+
+.gameAbout {
+  margin-top: 32px;
+  margin-left: 20px;
+}
+.gameAbout h2 {
+  color: #c00248;
+  text-shadow: 1px 1px #000000;
+  margin: 0 0 8px;
+}
+
+.about {
+  display: flex;
+  width: 500px;
+  height: 320px;
+  line-height: 22px;
+  overflow-y: scroll;
+}
+
+.infoDetail {
+  display: flex;
+  margin: 25px 4px  4px 20px;
+  justify-content: space-evenly
+}
+
+.infoDetail h2 {
+  margin-bottom: 10px;
+  color: #c00248;
+  text-shadow: 1px 1px #000000;
+}
+
+.infoDetail p {
+  line-height: 22px;
+  color: rgb(192, 165, 165);
+}
+
+.btnContainer {
+  margin: 5px;
+}
+
+.btn {
+  width: 200px;
+  height: 40px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  outline: 0;
+  border: 0;
+  border-radius: 8px;
+  background-color: #1a1a1ae2;
+  border: solid 2px white;
+  cursor: pointer;
+}
+
+.create {
+  background-color: #1a1a1ae2;
+  color: #ffffff;
+}
+
+.btn:hover {
+  color: #000000;
+  background-color: #ffffffd8;
+  transition: all 0.2s ease;
+}
+
+.create:hover {
+  background-color: #c00248;
+  border: solid 2px #c00248;
+}
+
+.btn:active {
+  transform: scale(0.9);
+  transition: all 0.2s ease;
+}
