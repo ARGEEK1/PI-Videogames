@@ -1,6 +1,7 @@
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Filters.module.css";
-import { orderByName, orderByRating, filterByGenre, filterByCreated } from "../../redux/actions"
+import { orderByName, orderByRating, filterByGenre, filterByCreated, resetFilters } from "../../redux/actions"
 
 const Filters = ({ visibleForm }) => {
   const dispatch = useDispatch();
@@ -27,27 +28,35 @@ const Filters = ({ visibleForm }) => {
     dispatch(filterByCreated(value));
   }
 
+  const handleReset = () => {
+    dispatch(resetFilters());
+    document.getElementById("OrderAlphabetic").value = "All";
+    document.getElementById("OrderRating").value = "All";
+    document.getElementById("FilterByGenres").value = "All";
+    document.getElementById("FilterByCreated").value = "All";
+  };
+
   return (
-    <div className={styles.selectors}>
-      <div>
+    <div className={styles.filters}>
+      <div className={styles.titleFilter}>
         <label className={styles.label} htmlFor="orderAlphabetic">Order Alphabetic: </label>
-        <select name='orderAlphabetic' onChange={handleAlphabetic} className={styles.select}>
+        <select name='orderAlphabetic' onChange={handleAlphabetic} className={styles.select} id="OrderAlphabetic">
           <option value='All'>None</option>
           <option value='a-z'>A-Z</option>
           <option value='z-a'>Z-A</option>
         </select>
-      </div>
-      <div>
+      </div >
+      <div className={styles.titleFilter}>
         <label className={styles.label} htmlFor="orderRating">Order Rating: </label>
-        <select name='orderRating' onChange={handleRating} className={styles.select}>
+        <select name='orderRating' onChange={handleRating} className={styles.select} id="OrderRating">
           <option value='All'>None</option>
           <option value='5-0'>5-0</option>
           <option value='0-5'>0-5</option>
         </select>
       </div>
-      <div>
+      <div className={styles.titleFilter}>
         <label className={styles.label} htmlFor="filterGenres">Filter by Genres: </label>
-        <select name='filterGenres' onChange={handleGenres} className={styles.select}>
+        <select name='filterGenres' onChange={handleGenres} className={styles.select} id="FilterByGenres">
           <option value='All'>All</option>
           {genres.map((gen) => (
             <option value={gen.name} key={gen.id}>
@@ -56,21 +65,20 @@ const Filters = ({ visibleForm }) => {
           ))}
         </select>
       </div>
-      <div>
+      <div className={styles.titleFilter}>
         <label className={styles.label} htmlFor="filterCreated">Filter by Created: </label>
-        <select name='filterCreated' onChange={handleCreated} className={styles.select}>
+        <select name='filterCreated' onChange={handleCreated} className={styles.select} id="FilterByCreated">
           <option value='All'>All</option>
           <option value='created'>Created</option>
           <option value='notCreated'>Not Created</option>
         </select>
       </div>
-      <br />
-      <div>
-        <button>All Games</button>
+      <div className={styles.btnContainer}>
+        <button className={styles.btn} onClick={handleReset}>Reset</button>
       </div>
       <br />
-      <div>
-        <button onClick={() => visibleForm()}>Create</button>
+      <div className={styles.btnContainer}>
+        <button className={`${styles.btn} ${styles.create}`} onClick={() => visibleForm()}>CREATE ✚</button>
       </div>
     </div>
   );

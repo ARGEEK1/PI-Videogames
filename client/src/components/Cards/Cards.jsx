@@ -1,6 +1,6 @@
+import React from "react";
 import Card from "../Card/Card";
 import styles from "./Cards.module.css";
-
 
 const Cards = (props) => {
   const { games, currentPage, itemsPerPage } = props;
@@ -24,7 +24,7 @@ const Cards = (props) => {
         })
       }
     </div>
-  )
+  );
 };
 
 export default Cards;

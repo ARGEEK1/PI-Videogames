@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { createVideoGame, addGame } from "../../redux/actions";
+import { createVideoGame } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import style from "./FormCreate.module.css";
+import styles from "./FormCreate.module.css";
 import validation from "./validation";
 
 
-const FormCreate = () => {
+const FormCreate = ({ visibleForm }) => {
   const dispatch = useDispatch();
 
   const genres = useSelector((state) => state.genres);
@@ -73,91 +73,107 @@ const FormCreate = () => {
 
   const disableForm = Object.values(errors).some((error) => error);
 
+  const image = !errors.image ? newGame.image : null;
+
   const submitHandler = async (e) => {
     e.preventDefault();
     dispatch(createVideoGame(newGame));
+    visibleForm();
   }
 
   return (
-    <div className={style.container}>
-      <h1>CreateVideogame</h1>
+    <div className={styles.form}>
+      <button className={styles.button} onClick={() => visibleForm()}>
+        Close
+      </button>
+      <br />
       <form onSubmit={submitHandler}>
 
-        <div className={style.inputContainer}>
-          <label htmlFor='name' className={style.formLabel}>Name: </label>
+        <div className={styles.inputContainer}>
+          <label htmlFor='name' className={styles.formLabel}>Name: </label>
           <input
-            className={style.formField}
+            className={styles.formField}
             type='text'
             onChange={handleInputChange}
             name='name'
             value={newGame.name}
             minLength='3'
             maxLength='20'
+            placeholder="Game name, maximum 20 characters"
           />
           {errors.name && (
-            <span className={`${style.spanDanger} ${style.spanDangerName}`}>{errors.name}</span>
+            <span className={styles.errorTxt}>{errors.name}</span>
           )}
         </div>
 
-        <div className={style.inputContainer}>
-          <label htmlFor='description' className={style.formLabel}>Description: </label>
+        <div className={styles.inputContainer}>
+          <label htmlFor='description' className={styles.formLabel}>Description: </label>
           <textarea
             type='text'
             onChange={handleInputChange}
             name='description'
             value={newGame.description}
             minLength='10'
-            maxLength='250'
+            maxLength='200'
+            placeholder="Game description , maximum 200 characters"
           />
           {errors.description && (
-            <span className={`${style.spanDanger} ${style.spanDangerDescription}`}>
+            <span className={styles.errorTxt}>
               {errors.description}
             </span>
           )}
         </div>
 
-        <div className={style.inputContainer}>
-          <label htmlFor='image' className={style.formLabel}>Image URL: </label>
+        <div className={styles.inputContainer}>
+          <label htmlFor='image' className={styles.formLabel}>Image URL: </label>
           <input
-            className={style.formField}
+            className={styles.formField}
             type='url'
             onChange={handleInputChange}
             name='image'
             value={newGame.image}
+            placeholder="https://..."
           />
           {errors.background_image && (
-            <span className={style.spanDanger}>{errors.image}</span>
+            <span className={styles.errorTxt}>{errors.image}</span>
           )}
         </div>
+        <div className={styles.img}>
+          {
+            image ? <div>
+              <img src={image} alt="" />
+            </div> : null
+          }
+        </div>
 
-        <div className={style.inputContainer}>
-          <label htmlFor='released' className={style.formLabel}>Released date: </label>
+        <div className={styles.inputContainer}>
+          <label htmlFor='released' className={styles.formLabel}>Released date: </label>
           <input
             type='date'
             onChange={handleInputChange}
             name='released'
             value={newGame.released}
-            className={style.formField}
+            className={styles.formField}
           />
-          {errors.released && <span className={style.spanDanger}>{errors.released}</span>}
+          {errors.released && <span className={styles.errorTxt}>{errors.released}</span>}
         </div>
 
-        <div className={style.inputContainer + " " + style.inputRating}>
-          <label htmlFor='rating' className={style.formLabel}>Rating: </label>
+        <div className={styles.inputContainer + " " + styles.inputRating}>
+          <label htmlFor='rating' className={styles.formLabel}>Rating: </label>
           <input
-            className={style.formField + " " + style.formNumber}
+            className={styles.formField + " " + styles.formNumber}
             type='number'
             id='rating'
             name='rating'
             min='1'
             max='5'
             onChange={handleInputChange}></input>
-          {errors.rating && <span className={style.spanDanger}>{errors.rating}</span>}
+          {errors.rating && <span className={styles.errorTxt}>{errors.rating}</span>}
         </div>
 
-        <div className={style.inputContainer}>
-          <label className={style.formLabel} htmlFor='platforms'>Platforms: </label>
-          <select name='platforms' onChange={handlePlatforms} className={style.select}>
+        <div className={styles.inputContainer}>
+          <label className={styles.formLabel} htmlFor='platforms'>Platforms: </label>
+          <select name='platforms' onChange={handlePlatforms} className={styles.select}>
             <option>Select</option>
             {platforms.map((pla, i) => (
               <option value={pla.name} key={i}>
@@ -165,21 +181,21 @@ const FormCreate = () => {
               </option>
             ))}
           </select>
-          {errors.platforms && <span className={style.spanDanger}>{errors.platforms}</span>}
+          {errors.platforms && <span className={styles.errorTxt}>{errors.platforms}</span>}
         </div>
         <div>
           {
             newGame.platforms?.map((pla, i) => {
               return (
-                <span key={i} className={style.genrePlatf}>{pla}<button value={pla} onClick={deletePlatforms} className={style.btnx}>X</button></span>
+                <span key={i} className={styles.genrePlatf}>{pla}<button value={pla} onClick={deletePlatforms} className={styles.btnx}>X</button></span>
               )
             })
           }
         </div>
 
-        <div className={style.inputContainer}>
-          <label className={style.formLabel} htmlFor='genres'>Genres: </label>
-          <select name='genres' onChange={handleGenres} className={style.select}>
+        <div className={styles.inputContainer}>
+          <label className={styles.formLabel} htmlFor='genres'>Genres: </label>
+          <select name='genres' onChange={handleGenres} className={styles.select}>
             <option>Select</option>
             {genres.map((gen, i) => (
               <option value={gen.name} key={i}>
@@ -187,21 +203,22 @@ const FormCreate = () => {
               </option>
             ))}
           </select>
-          {errors.genres && <span className={style.spanDanger}>{errors.genres}</span>}
+          {errors.genres && <span className={styles.errorTxt}>{errors.genres}</span>}
         </div>
         <div>
           {
             newGame.genres?.map((gen, i) => {
               return (
-                <span key={i} className={style.genrePlatf}>{gen}<button value={gen} onClick={deleteGenres} className={style.btnx}>X</button></span>
+                <span key={i} className={styles.genrePlatf}>{gen}<button value={gen} onClick={deleteGenres} className={styles.btnx}>X</button></span>
               )
             })
           }
         </div>
-
-        <button type='submit' disabled={disableForm}>
-          Submit
-        </button>
+        <div className={styles.btnContainer}>
+          <button className={styles.btn} type='submit' disabled={disableForm}>
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );

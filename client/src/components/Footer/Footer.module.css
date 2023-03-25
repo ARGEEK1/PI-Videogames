@@ -1,0 +1,27 @@
+.footer {
+  height: 90px;
+  width: 100%;
+  display: flex;
+  background-color: #280033;
+  color: #ffc500;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  grid-area: footer;
+}
+
+.info {
+  margin-top: 15px;
+  display: flex;
+  width: 300px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.h3 {
+  text-decoration: none;
+}
+
+.footer p {
+  color: white;
+}

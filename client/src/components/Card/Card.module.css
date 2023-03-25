@@ -1,14 +1,17 @@
 .card {
-  width: 200px;
+  width: 260px;
   height: 350px;
   position: relative;
-  background: #f5f5f5;
+  border-radius: 5px;
+  background: #77767600;
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.5);
   transition: box-shadow .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-img {
+.imgCard {
   position: relative;
-  width: 250px;
+  border-radius: 5px;
+  width: 260px;
   height: 100%;
   object-fit: cover;
 }
@@ -21,6 +24,8 @@ img {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  text-decoration: none;
+  background: linear-gradient(0deg, #000000, #00000000);
 }
 
 .cardIcon {
@@ -32,30 +37,30 @@ img {
 }
 
 svg {
-  --size: 20px;
+  --size: 25px;
   width: var(--size);
   height: var(--size);
 }
 
-/*Text*/
-p {
+.textTitle p {
   line-height: 140%;
 }
 
 .textTitle {
   font-weight: 900;
-  font-size: 18px;
+  font-size: 25px;
+  color: #ffffff;
+  text-shadow: -4px 4px 4px  rgba(0, 0, 0, 0.5);
 }
 
 .textSubtitle {
-  color: #333;
+  color: #b49dc2;
   font-weight: 500;
   font-size: 16px;
 }
 
-/*Hover*/
 .card:hover {
-  box-shadow: 0 10px 20px 4px rgba(35, 35, 35, .1);
+  box-shadow: 0 0px 10px 4px rgba(0, 0, 0, 0.777);
 }
 
 .card:hover .cardIcon {

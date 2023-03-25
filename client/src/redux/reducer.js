@@ -8,9 +8,10 @@ import {
   ORDER_RATING,
   FILTER_GENRE,
   FILTER_CREATED,
-  ADD_GAME,
+  RESET_FILTERS,
   CREATE_VIDEOGAME,
   DELETE_GAME,
+  LOADING
 } from "./actions";
 
 const initialState = {
@@ -38,6 +39,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         videogameDetail: payload,
+        onLoad: false,
       };
 
     case GET_GENRES:
@@ -56,6 +58,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         videosgamesFiltering: payload,
+        onLoad: false,
       };
 
     case ORDER_NAME:
@@ -139,18 +142,18 @@ const rootReducer = (state = initialState, action) => {
         videosgamesFiltering: filterCreated,
       };
 
-    // case ADD_GAME:
-    //   state.videogames.unshift(payload);
-    //   return {
-    //     ...state,
-    //     videosgamesFiltering: [...state.videogames],
-    //   };
+    case RESET_FILTERS:
+      return {
+        ...state,
+        videosgamesFiltering: [...state.videogames],
+      };
 
     case CREATE_VIDEOGAME:
       state.videogames.unshift(payload);
       return {
         ...state,
         videosgamesFiltering: [...state.videogames],
+        onLoad: false,
       };
 
     case DELETE_GAME:
@@ -159,13 +162,20 @@ const rootReducer = (state = initialState, action) => {
         videosgamesFiltering: [...state.videogames].filter(
           (game) => game.id !== payload
         ),
+        onLoad: false,
+      };
+
+    case LOADING:
+      return {
+        ...state,
+        onLoad: true,
       };
 
     default:
       return {
         ...state,
       };
-  }
+  };
 };
 
 export default rootReducer;

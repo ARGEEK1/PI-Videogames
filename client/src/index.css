@@ -2,3 +2,20 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: "Poppins", sans-serif, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url(./image/searchback.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: #280033;
+}
+
+#root {
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,39 @@
+.pagination {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  grid-area: pagination;
+}
+
+.btn {
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.946);
+  border-radius: 8px;
+  border: none;
+  font-size: 20px;
+  color: #fa005a;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border: 2px solid #fa005a;
+}
+
+.btn[disabled] {
+  color: #1f1d2b;
+  cursor: auto;
+}
+
+.btn:active {
+  transform: scale(0.9);
+  transition: all 0.2s ease;
+}
+
+.text {
+  font-size: 1.3rem;
+  color: white;
+  user-select: none;
+}

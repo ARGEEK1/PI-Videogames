@@ -1,0 +1,16 @@
+.banner {
+  width: 100%;
+  grid-area: banner;
+}
+
+.img {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.img img {
+  width: 100%;
+  height: auto;
+}

@@ -9,13 +9,15 @@ export const ORDER_NAME = "ORDER_NAME";
 export const ORDER_RATING = "ORDER_RATING";
 export const FILTER_GENRE = "FILTER_GENRE";
 export const FILTER_CREATED = "FILTER_CREATED";
-export const ADD_GAME = "ADD_GAME";
+export const RESET_FILTERS = "RESET_FILTERS";
 export const CREATE_VIDEOGAME = "CREATE_VIDEOGAME";
 export const DELETE_GAME = "DELETE_GAME";
+export const LOADING = "LOADING";
 
 export const getVideogames = () => {
   return async (dispatch) => {
     try {
+      dispatch({ type: LOADING });
       const games = await axios.get("http://localhost:3001/videogames");
       return dispatch({ type: GET_VIDEOGAMES, payload: games.data });
     } catch (error) {
@@ -27,6 +29,7 @@ export const getVideogames = () => {
 export const getDetailById = (id) => {
   return async (dispatch) => {
     try {
+      dispatch({ type: LOADING });
       const gameId = await axios.get(`http://localhost:3001/videogames/${id}`);
       return dispatch({ type: GET_DETAIL_ID, payload: gameId.data });
     } catch (error) {
@@ -52,6 +55,7 @@ export const getPlatforms = () => {
 export const getVideogamesByName = (name) => {
   return async (dispatch) => {
     try {
+      dispatch({ type: LOADING });
       const videogamesByName = await axios.get(
         `http://localhost:3001/videogames?name=${name}`
       );
@@ -68,6 +72,7 @@ export const getVideogamesByName = (name) => {
 export const createVideoGame = (newGame) => {
   return async (dispatch) => {
     try {
+      dispatch({ type: LOADING });
       const newVideoGame = await axios.post(
         "http://localhost:3001/videogames",
         newGame
@@ -89,6 +94,7 @@ export const createVideoGame = (newGame) => {
 export const deleteGame = (id) => {
   return async (dispatch) => {
     try {
+      dispatch({ type: LOADING });
       const response = await axios.delete(
         `http://localhost:3001/videogames/${id}`
       );
@@ -127,8 +133,8 @@ export const filterByCreated = (value) => {
   };
 };
 
-export const addGame = (game) => {
+export const resetFilters = () => {
   return (dispatch) => {
-    dispatch({ type: ADD_GAME, payload: game });
+    dispatch({ type: RESET_FILTERS });
   };
 };

@@ -1,0 +1,75 @@
+.filters {
+  background: url(../../image/bigback.webp);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: #dfec24;
+  padding-top: 100px;
+  grid-area: filters;
+}
+
+.titleFilter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.label {
+  color: #000000;
+  font-size: 1.4rem;
+  margin: 10px;
+}
+
+.select {
+  width: 200px;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  border: 2px solid #680157;
+  background-color: #280033;
+  border-radius: 8px;
+  outline: 0;
+  cursor: pointer;
+}
+
+.btnContainer {
+  margin: 5px;
+}
+
+.btn {
+  width: 200px;
+  height: 40px;
+  font-size: 1.2rem;
+  color: #000000;
+  outline: 0;
+  border: 0;
+  border-radius: 8px;
+  background-color: #dfec24;
+  border: 3px solid #280033;
+  cursor: pointer;
+}
+
+.create {
+  background-color: #520044;
+  color: #ffffff;
+}
+
+.btn:hover {
+  background-color: #ffffffbc;
+  transition: all 0.2s ease;
+}
+
+.create:hover {
+  background-color: #b80099;
+}
+
+.btn:active {
+  transform: scale(0.9);
+  transition: all 0.2s ease;
+}
