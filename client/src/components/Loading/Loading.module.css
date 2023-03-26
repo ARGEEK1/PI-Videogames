@@ -11,7 +11,7 @@
   width: 100px;
   height: 100px;
   display: inline-block;
-  border: 5px solid rgb(251, 251, 251);
+  border: 5px solid rgb(255, 255, 255);
   border-radius: 50%;
   border-top-color: transparent;
   border-bottom-color: transparent;
@@ -25,8 +25,8 @@
 
   50% {
     transform: rotate(180deg);
-    border-top-color: rgb(139, 46, 46);
-    border-bottom-color: rgb(243, 92, 33);
+    border-top-color: rgb(255, 0, 183);
+    border-bottom-color: rgb(0, 0, 0);
     border-right-color: transparent;
     border-left-color: transparent;
   }

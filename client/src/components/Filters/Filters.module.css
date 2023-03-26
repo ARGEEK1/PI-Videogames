@@ -1,12 +1,12 @@
 .filters {
-  background: url(../../image/bigback.webp);
+  /* background: url(../../image/bigback.webp); */
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  background-color: #dfec24;
+  background-color: #736385;
   padding-top: 100px;
   grid-area: filters;
 }
@@ -31,7 +31,7 @@
   padding: 10px;
   font-size: 16px;
   color: #ffffff;
-  border: 2px solid #680157;
+  border: 2px solid #280033;
   background-color: #280033;
   border-radius: 8px;
   outline: 0;
@@ -50,23 +50,26 @@
   outline: 0;
   border: 0;
   border-radius: 8px;
-  background-color: #dfec24;
-  border: 3px solid #280033;
+  background-color: #f2f2f2;
+  border: 2px solid #280033;
   cursor: pointer;
 }
 
 .create {
-  background-color: #520044;
+  border: 2px solid #151515;
+  background-color: #151515;
   color: #ffffff;
 }
 
 .btn:hover {
-  background-color: #ffffffbc;
+  color: #ffffff;
+  background-color: #280033;
   transition: all 0.2s ease;
 }
 
 .create:hover {
-  background-color: #b80099;
+  background-color: #d3d3d3;
+  color: #000000;
 }
 
 .btn:active {

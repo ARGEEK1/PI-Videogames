@@ -12,10 +12,11 @@ body {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  background-color: #280033;
+  background-color: #151515;
 }
 
 #root {
   width: 100%;
   height: auto;
 }
+

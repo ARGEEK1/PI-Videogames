@@ -23,7 +23,7 @@ const SearchBar = (props) => {
       <form onSubmit={search}>
         <input onChange={handleInputChange} value={character} type="text" placeholder="Seach By Name" name="search" />
         <button type="submit">
-          <svg fill="#fa005a" width="256px" height="256px" viewBox="0 0 1920.00 1920.00" xmlns="http://www.w3.org/2000/svg" stroke="#fa005a" strokeWidth="0.019200000000000002">
+          <svg fill="#000000" width="256px" height="256px" viewBox="0 0 1920.00 1920.00" xmlns="http://www.w3.org/2000/svg" stroke="#fa005a" strokeWidth="0.019200000000000002">
             <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
             <g id="SVGRepo_iconCarrier">

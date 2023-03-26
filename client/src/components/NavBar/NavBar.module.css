@@ -1,5 +1,5 @@
 .header {
-  background-color: #ffc500;
+  background-color: #151515;
   box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.384);
   height: 80px;
   position: fixed;
@@ -18,7 +18,7 @@
 }
 
 .navLink {
-  color: #520044;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -55,8 +55,8 @@
 }
 
 .navMenuLink:hover {
-  border: 3px solid #fa005a;
-  background-color: rgba(255, 255, 255, 0.492);
+  color: black;
+  background-color: rgb(231, 231, 231);
   transition: 0.5s;
 }
 
@@ -91,7 +91,7 @@
   }
   
   .navLink {
-    color: #ffc500;
+    color: #ffffff;
   }
 
   .navMenu {

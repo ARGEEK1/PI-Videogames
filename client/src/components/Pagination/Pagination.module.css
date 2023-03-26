@@ -19,7 +19,7 @@
 }
 
 .btn:hover {
-  border: 2px solid #fa005a;
+  box-shadow:0px 0px 2px 2px #ffffff;
 }
 
 .btn[disabled] {

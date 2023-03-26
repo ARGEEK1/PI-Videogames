@@ -19,7 +19,7 @@
 }
 
 .search input[type=text]:hover {
-  border:solid #520044;
+  border:solid #ffffff;
 }
 
 .search button {
@@ -34,7 +34,7 @@
 }
 
 .search button:hover {
-  border:solid #520044;
+  border:solid #ffffff;
 }
 
 @media (max-width: 998px) {
