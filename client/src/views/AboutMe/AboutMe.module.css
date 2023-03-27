@@ -1,0 +1,59 @@
+.mainAboutMe {
+  width: 100%;
+  height: 870px;
+  margin-top: -60px;
+  background: url(../../image/ps5.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #151515;
+}
+
+.titleAboutMe h1 {
+  color: #e7e7e7;
+  font-size: 60px;
+  font-style: oblique 10deg;
+  line-height: 70px;
+  font-weight: 700;
+  text-shadow: 3px -1px #29F3E2, -3px 1px #FF00FF;
+  margin: 20px;
+}
+
+.presentationContainer {
+  width: 70%;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000095;
+  padding: 20px;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  margin: 30px;
+  border: solid 1px rgb(33, 32, 32);
+  
+}
+
+.imgProfileContainer img {
+  border: solid 1px rgb(38, 38, 38);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 30px;
+}
+
+.presentation {
+  color: #fefefe;
+  font-size: 20px;
+  width: 600px;
+  text-shadow:1px 1px 1px #000000;
+  margin: 30px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-align: justify;
+}
