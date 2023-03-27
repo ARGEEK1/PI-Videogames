@@ -29,12 +29,12 @@
   line-height: 70px;
   font-weight: 700;
   text-shadow: -4px 4px rgb(0, 0, 0);
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 .gameAbout {
   margin-top: 32px;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 .gameAbout h2 {
   color: #c00248;
