@@ -18,7 +18,7 @@ export const getVideogames = () => {
   return async (dispatch) => {
     try {
       dispatch({ type: LOADING });
-      const games = await axios.get("http://localhost:3001/videogames");
+      const games = await axios.get("https://pi-videogames-production-7c12.up.railway.app/videogames");
       return dispatch({ type: GET_VIDEOGAMES, payload: games.data });
     } catch (error) {
       alert(error.response.data.error);
@@ -30,7 +30,7 @@ export const getDetailById = (id) => {
   return async (dispatch) => {
     try {
       dispatch({ type: LOADING });
-      const gameId = await axios.get(`http://localhost:3001/videogames/${id}`);
+      const gameId = await axios.get(`https://pi-videogames-production-7c12.up.railway.app/videogames/${id}`);
       return dispatch({ type: GET_DETAIL_ID, payload: gameId.data });
     } catch (error) {
       alert(error.response.data.error);
@@ -40,14 +40,14 @@ export const getDetailById = (id) => {
 
 export const getGenres = () => {
   return async (dispatch) => {
-    const genres = await axios.get("http://localhost:3001/genres");
+    const genres = await axios.get("https://pi-videogames-production-7c12.up.railway.app/genres");
     dispatch({ type: GET_GENRES, payload: genres.data });
   };
 };
 
 export const getPlatforms = () => {
   return async (dispatch) => {
-    const platforms = await axios.get("http://localhost:3001/platforms");
+    const platforms = await axios.get("https://pi-videogames-production-7c12.up.railway.app/platforms");
     dispatch({ type: GET_PLATFORMS, payload: platforms.data });
   };
 };
@@ -57,7 +57,7 @@ export const getVideogamesByName = (name) => {
     try {
       dispatch({ type: LOADING });
       const videogamesByName = await axios.get(
-        `http://localhost:3001/videogames?name=${name}`
+        `https://pi-videogames-production-7c12.up.railway.app/videogames?name=${name}`
       );
       return dispatch({
         type: GET_GAMES_BY_NAME,
@@ -74,7 +74,7 @@ export const createVideoGame = (newGame) => {
     try {
       dispatch({ type: LOADING });
       const newVideoGame = await axios.post(
-        "http://localhost:3001/videogames",
+        "https://pi-videogames-production-7c12.up.railway.app/videogames",
         newGame
       );
       if (newVideoGame.data) {
@@ -96,7 +96,7 @@ export const deleteGame = (id) => {
     try {
       dispatch({ type: LOADING });
       const response = await axios.delete(
-        `http://localhost:3001/videogames/${id}`
+        `https://pi-videogames-production-7c12.up.railway.app/videogames/${id}`
       );
       alert(response.data);
       return dispatch({
