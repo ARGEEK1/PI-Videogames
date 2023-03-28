@@ -3,7 +3,7 @@
   height: auto;
   display: grid;
   grid-template-columns: 300px 1fr;
-  grid-template-rows: 449px 70px 1fr 90px;
+  grid-template-rows: 419px 70px 1fr 90px;
   grid-template-areas:
     'banner banner'
     'filters pagination'
