@@ -98,7 +98,7 @@ const FormCreate = ({ visibleForm }) => {
             name='name'
             value={newGame.name}
             minLength='3'
-            maxLength='20'
+            maxLength='100'
             placeholder="Game name, maximum 20 characters"
           />
           {errors.name && (
@@ -114,7 +114,7 @@ const FormCreate = ({ visibleForm }) => {
             name='description'
             value={newGame.description}
             minLength='10'
-            maxLength='200'
+            maxLength='400'
             placeholder="Game description , maximum 200 characters"
           />
           {errors.description && (
