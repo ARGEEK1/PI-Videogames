@@ -1,18 +1,18 @@
 const validation = (inputs) => {
   let errors = {};
 
-  const regexName = /^[a-zA-Z0-9\s]{1,20}$/;
-  const regexDescription = /^[,.;:?!-_a-zA-ZÀ-ÿ0-9\s]{10,200}$/u;
+  const regexName = /^[a-zA-Z0-9\s:-]{1,100}$/;
+  const regexDescription = /^[,.;:?!-_a-zA-ZÀ-ÿ0-9\s]{10,400}$/u;
   const regexUrl = /(http[s]?:\/\/.*\.(?:png|jpg|webp|gif|svg|jpeg))/i;
 
   const regexDate = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
   const regexNumber = /^(?:[1-4](?:\.\d+)?|5(?:\.0+)?)$/;
 
   if (!regexName.test(inputs.name) || !inputs.name)
-    errors.name = "Must contain a name, maximum 20 characters";
+    errors.name = "Must contain a name, maximum 100 characters";
   if (!regexDescription.test(inputs.description) || !inputs.description)
     errors.description =
-      "Must contain a description, from 10 to 200 characters";
+      "Must contain a description, from 10 to 400 characters";
   if (!regexUrl.test(inputs.image)) errors.image = "Must be a valid url";
   if (!regexDate.test(inputs.released))
     errors.released = "Must contain a valid date (YYYY-MM-DD)";
