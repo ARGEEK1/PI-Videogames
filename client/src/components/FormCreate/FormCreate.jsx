@@ -50,6 +50,15 @@ const FormCreate = ({ visibleForm }) => {
   const handleGenres = (e) => {
     setErrors(validation({ ...newGame, genres: [...newGame.genres, e.target.value] }));
     setNewGame({ ...newGame, genres: [...newGame.genres, e.target.value] });
+
+    newGame.genres.forEach( gen => {
+      if (e.target.value === gen) {
+        setErrors({
+          genres:"Repeated genre, re-add only once"
+        });
+        deleteGenres(e);
+      };
+    });
   };
 
   const deleteGenres = (e) => {
@@ -62,6 +71,15 @@ const FormCreate = ({ visibleForm }) => {
   const handlePlatforms = (e) => {
     setErrors(validation({ ...newGame, platforms: [...newGame.platforms, e.target.value] }));
     setNewGame({ ...newGame, platforms: [...newGame.platforms, e.target.value] });
+
+    newGame.platforms.forEach( plat => {
+      if (e.target.value === plat) {
+        setErrors({
+          platforms:"Repeated platform, re-add only once"
+        });
+        deletePlatforms(e);
+      };
+    });
   };
 
   const deletePlatforms = (e) => {
@@ -98,8 +116,8 @@ const FormCreate = ({ visibleForm }) => {
             name='name'
             value={newGame.name}
             minLength='3'
-            maxLength='20'
-            placeholder="Game name, maximum 20 characters"
+            maxLength='100'
+            placeholder="Game name, maximum 100 characters"
           />
           {errors.name && (
             <span className={styles.errorTxt}>{errors.name}</span>
@@ -114,8 +132,8 @@ const FormCreate = ({ visibleForm }) => {
             name='description'
             value={newGame.description}
             minLength='10'
-            maxLength='200'
-            placeholder="Game description , maximum 200 characters"
+            maxLength='400'
+            placeholder="Game description , maximum 400 characters"
           />
           {errors.description && (
             <span className={styles.errorTxt}>
@@ -187,7 +205,7 @@ const FormCreate = ({ visibleForm }) => {
           {
             newGame.platforms?.map((pla, i) => {
               return (
-                <span key={i} className={styles.genrePlatf}>{pla}<button value={pla} onClick={deletePlatforms} className={styles.btnx}>X</button></span>
+                <span key={i} className={styles.genrePlatf}>{pla}<button type="button" value={pla} onClick={deletePlatforms} className={styles.btnx}>X</button></span>
               )
             })
           }
@@ -209,7 +227,7 @@ const FormCreate = ({ visibleForm }) => {
           {
             newGame.genres?.map((gen, i) => {
               return (
-                <span key={i} className={styles.genrePlatf}>{gen}<button value={gen} onClick={deleteGenres} className={styles.btnx}>X</button></span>
+                <span key={i} className={styles.genrePlatf}>{gen}<button type="button" value={gen} onClick={deleteGenres} className={styles.btnx}>X</button></span>
               )
             })
           }

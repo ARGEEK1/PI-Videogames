@@ -43,10 +43,14 @@ const Home = () => {
     setCreate(!create);
   };
 
+  const firstPage = () => {
+    setCurrentPage(1);
+  };
+
   return (
     <main className={styles.main}>
       <Banner />
-      <Filters visibleForm={visibleForm} />
+      <Filters visibleForm={visibleForm} firstPage={firstPage} />
       {create ? <FormCreate visibleForm={visibleForm} /> : null}
       <Pagination
         currentPage={currentPage}

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./Filters.module.css";
 import { orderByName, orderByRating, filterByGenre, filterByCreated, resetFilters } from "../../redux/actions"
 
-const Filters = ({ visibleForm }) => {
+const Filters = ({ visibleForm, firstPage }) => {
   const dispatch = useDispatch();
 
   const genres = useSelector((state) => state.genres);
@@ -19,11 +19,13 @@ const Filters = ({ visibleForm }) => {
   };
 
   const handleGenres = (e) => {
+    firstPage();
     let value = e.target.value;
     dispatch(filterByGenre(value));
   };
 
   const handleCreated = (e) => {
+    firstPage();
     let value = e.target.value;
     dispatch(filterByCreated(value));
   }

@@ -11,7 +11,8 @@ import {
   RESET_FILTERS,
   CREATE_VIDEOGAME,
   DELETE_GAME,
-  LOADING
+  LOADING,
+  CLEAN_DETAIL
 } from "./actions";
 
 const initialState = {
@@ -169,6 +170,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         onLoad: true,
+      };
+
+      case CLEAN_DETAIL:
+      return {
+        ...state,
+        videogameDetail: [],
+        onLoad: false,
       };
 
     default:
